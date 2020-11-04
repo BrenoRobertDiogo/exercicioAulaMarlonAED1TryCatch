@@ -12,12 +12,18 @@ class MainClass {
       Console.WriteLine("MARCA DO CARRO >>");
       marca = Console.ReadLine();
       Console.WriteLine("KM/L DO CARRO >>");
+
+
       try {
         consumo = double.Parse(Console.ReadLine());
-      }catch(System.Exception e) {
-        Console.WriteLine("Lembre-se a quilometragem como números");
+      }catch(System.Exception) {
+        throw new ArgumentNullException();
 
+      }finally{
+        Console.WriteLine("");
       }
+      
+
       aut = new Carro(marca, consumo);
       listaCarros.Add(aut);
       Console.WriteLine("CONTINUAR? S/N");
